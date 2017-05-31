@@ -1,4 +1,9 @@
 
+<!DOCTYPE html>
+<html>
+
+
+
 <?php
 $link = mysqli_connect("localhost", "bokai_admin1", "B.kqsara", "bokai_worldCityData");
 
@@ -19,10 +24,28 @@ $result = mysqli_query($link, $sql);
 echo "<br>" . mysqli_num_rows($result) . "<br>";
 
 if (mysqli_num_rows($result) > 0) {
+	echo 
+	("<table border='1'>
+		<tr>
+    	<th>Country Name</th>
+    	<th>Population</th>
+    	<th>Life Expectancy</th>
+  		</tr>"
+  	);
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
-        echo "id: " . $row["id"]. " - Name: " . $row["Name"]. "  Population: " . $row["Population"]. "  Life Expectancy: " . $row["LifeExpectancy"] . "<br>";
+        // echo "id: " . $row["id"]. " - Name: " . $row["Name"]. "  Population: " . $row["Population"]. "  Life Expectancy: " . $row["LifeExpectancy"] . "<br>";
+        echo 
+        ("
+        	<tr>
+        		<td>".$row["Name"]."</td>
+        		<td>".$row["Population"]."</td>
+        		<td>".$row["LifeExpectancy"]."</td>
+        	</tr>"
+        );
     }
+	echo "</table>";
+
 } else {
     echo "0 result";
 }
@@ -30,3 +53,5 @@ if (mysqli_num_rows($result) > 0) {
 mysqli_close($link);
 ?>
 
+
+</html>
