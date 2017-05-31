@@ -1,8 +1,25 @@
-
 <!DOCTYPE html>
 <html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style/sqlProject.css">
+	<title>BOKAI!</title>
+</head>
+<body>
+
+<ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a class="active" href="sqlProject.php">SQL Project</a></li>
+  <li><a href="contact.html">Contact</a></li>
+  <li><a href="about.html">About</a></li>
+</ul>
+
+<h1>I AM FINALLY HERE!</h1>
 
 
+
+<center><a href="https://github.com/handsomeHypocrite/bokaiDomain"> <h2>Link to source code</h2> <br></a></center>
+
+<div>
 
 <?php
 $link = mysqli_connect("localhost", "bokai_admin1", "B.kqsara", "bokai_worldCityData");
@@ -14,7 +31,7 @@ if (!$link) {
     exit;
 }
 
-echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
+echo "Successfully made connection to country DB" . PHP_EOL;
 echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 
 $sql = "SELECT * FROM country WHERE Population>1 AND LifeExpectancy>1";
@@ -53,6 +70,9 @@ if (mysqli_num_rows($result) > 0) {
 
 mysqli_close($link);
 ?>
+</div>
 
-
+<!-- <img src="images/doge.jpeg">
+ -->
+</body>
 </html>
