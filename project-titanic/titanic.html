@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<title>bokai!</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+</style>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container">
+    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+      <i class="fa fa-remove"></i>
+    </a>
+<!--     <img src="./images/grad3.jpg" style="width:50%;" class="w3-round"><br><br>
+ -->    <h4><b><a href="../index.html" style="text-decoration: none">Home</a></b></h4>
+<!--     <p class="w3-text-grey">Template by W3.CSS</p>
+ -->  </div>
+  <div class="w3-bar-block">
+    <a href="#brief" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Brief</a> 
+    <a href="#classification" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Classification</a> 
+    <a href="#correlation" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Correlation</a>
+  </div>
+  <div class="w3-panel w3-large">
+    <!-- <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i> -->
+    <a href="https://github.com/handsomeHypocrite"><i class="fa fa-github w3-hover-opacity"></i></a>
+    <a href="https://www.linkedin.com/in/bokai-chen-511a1610b/?ppe=1"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+  </div>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+  <!-- Header -->
+  <header id="brief">
+<!--     <a href="#"><img src="./images/tea.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a> -->
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+    <h1><b>Titanic Data Analysis</b></h1>
+    <div class="w3-section w3-bottombar w3-padding-16">
+      <!-- <span class="w3-margin-right">Filter:</span> 
+      <button class="w3-button w3-black">ALL</button>
+      <button class="w3-button w3-white"><i class="fa fa-diamond w3-margin-right"></i>Design</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>Photos</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-map-pin w3-margin-right"></i>Art</button> -->
+    </div>
+    </div>
+  </header>
+  
+  <!-- First Photo Grid-->
+  <div class="w3-row-padding" style="margin-left: 1cm"> 
+  <h4><b>Project Brief:</b></h4>
+  <hr>
+  <p>
+    This project aims to create a model to predict the probability of a given passengers surviving the titanic tragedy. 
+    The model uses information such as the passenger's age, sex, cabin number, etc. 
+  </p>
+  <p>
+    A set of training data is provided. This data includes the whether or not each passenger survived, hence is used carry out the machine learning. Another set of data is used to test the accuracy of the model. The survival infomation is not visible to the project.
+  </p>
+  <p>
+    The analysis and model contruction is done using Python. The Pandas module is used extensively. 
+    This is a well known data science project. Data and details regarding this project can be found on  
+    <a href="https://www.kaggle.com/c/titanic">Kaggle website.</a>
+  </p>
+  <br>
+
+
+<!-- Classification content -->
+ 
+ <h4 id= "classification"><b>Classification:<br><br></b></h4>
+    <p>
+      Looking at the data, there are 9 categories that could potentially help predicting survival results. They are Ticket class, sex, age, the number of siblings aboard, the number of parent/children aboard, ticket number, passenger fare, cabin number and the port of embarkation. Below are some sample data.
+    </p>
+
+    <hr>
+
+    <table border="1">
+  <thead>
+    <tr style="text-align: left;">
+      <th></th>
+      <th>PassengerId</th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Braund, Mr. Owen Harris</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>A/5 21171</td>
+      <td>7.2500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>PC 17599</td>
+      <td>71.2833</td>
+      <td>C85</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>Heikkinen, Miss. Laina</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>STON/O2. 3101282</td>
+      <td>7.9250</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
+      <td>female</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>113803</td>
+      <td>53.1000</td>
+      <td>C123</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Allen, Mr. William Henry</td>
+      <td>male</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>373450</td>
+      <td>8.0500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+
+    <p>
+      Without looking at the actual data, one can immediately tell that categories such as sex, age, and ticket class are likely to be much better predictors of a passengers survival chance than ticket number and port of embarkation. However, no assumption is made at this stage.
+    </p>
+    <p>
+      The following are some Pandas describtion of the data 
+      <table cellspacing="0" border="1" >
+        <colgroup span="8" width="85"></colgroup>
+        <tr style="text-align: left;">
+          <td height="17" align="left"><br></td>
+          <td align="left">PassengerId</td>
+          <td align="left">   Survived</td>
+          <td align="left">    Pclass</td>
+          <td align="left">        Age</td>
+          <td align="left"> SibSp</td>
+          <td align="left">     Parch</td>
+          <td align="left">      Fare</td>
+        </tr>
+        <tr>
+          <td height="17" align="left">count</td>
+          <td align="left" sdval="891" sdnum="1033;">891</td>
+          <td align="left" sdval="891" sdnum="1033;">891</td>
+          <td align="left" sdval="891" sdnum="1033;">891</td>
+          <td align="left" sdval="714" sdnum="1033;">714</td>
+          <td align="left" sdval="891" sdnum="1033;">891</td>
+          <td align="left" sdval="891" sdnum="1033;">891</td>
+          <td align="left" sdval="891" sdnum="1033;">891</td>
+        </tr>
+        <tr>
+          <td height="17" align="left">mean</td>
+          <td align="left" sdval="446" sdnum="1033;">446</td>
+          <td align="left" sdval="0.383838" sdnum="1033;">0.383838</td>
+          <td align="left" sdval="2.308642" sdnum="1033;">2.308642</td>
+          <td align="left" sdval="29.699118" sdnum="1033;">29.699118</td>
+          <td align="left" sdval="0.523008" sdnum="1033;">0.523008</td>
+          <td align="left" sdval="0.381594" sdnum="1033;">0.381594</td>
+          <td align="left" sdval="32.204208" sdnum="1033;">32.204208</td>
+        </tr>
+        <tr>
+          <td height="17" align="left">std</td>
+          <td align="left" sdval="257.353842" sdnum="1033;">257.353842</td>
+          <td align="left" sdval="0.486592" sdnum="1033;">0.486592</td>
+          <td align="left" sdval="0.836071" sdnum="1033;">0.836071</td>
+          <td align="left" sdval="14.526497" sdnum="1033;">14.526497</td>
+          <td align="left" sdval="1.102743" sdnum="1033;">1.102743</td>
+          <td align="left" sdval="0.806057" sdnum="1033;">0.806057</td>
+          <td align="left" sdval="49.693429" sdnum="1033;">49.693429</td>
+        </tr>
+        <tr>
+          <td height="17" align="left">min</td>
+          <td align="left" sdval="1" sdnum="1033;">1</td>
+          <td align="left" sdval="0" sdnum="1033;">0</td>
+          <td align="left" sdval="1" sdnum="1033;">1</td>
+          <td align="left" sdval="0.42" sdnum="1033;">0.42</td>
+          <td align="left" sdval="0" sdnum="1033;">0</td>
+          <td align="left" sdval="0" sdnum="1033;">0</td>
+          <td align="left" sdval="0" sdnum="1033;">0</td>
+        </tr>
+        <tr>
+          <td height="17" align="left" sdval="0.25" sdnum="1033;0;0.00%">25.00%</td>
+          <td align="left" sdval="223.5" sdnum="1033;">223.5</td>
+          <td align="left" sdval="0" sdnum="1033;">0</td>
+          <td align="left" sdval="2" sdnum="1033;">2</td>
+          <td align="left" sdval="20.125" sdnum="1033;">20.125</td>
+          <td align="left" sdval="0" sdnum="1033;">0</td>
+          <td align="left" sdval="0" sdnum="1033;">0</td>
+          <td align="left" sdval="7.9104" sdnum="1033;">7.9104</td>
+        </tr>
+        <tr>
+          <td height="17" align="left" sdval="0.5" sdnum="1033;0;0.00%">50.00%</td>
+          <td align="left" sdval="446" sdnum="1033;">446</td>
+          <td align="left" sdval="0" sdnum="1033;">0</td>
+          <td align="left" sdval="3" sdnum="1033;">3</td>
+          <td align="left" sdval="28" sdnum="1033;">28</td>
+          <td align="left" sdval="0" sdnum="1033;">0</td>
+          <td align="left" sdval="0" sdnum="1033;">0</td>
+          <td align="left" sdval="14.4542" sdnum="1033;">14.4542</td>
+        </tr>
+        <tr>
+          <td height="17" align="left" sdval="0.75" sdnum="1033;0;0.00%">75.00%</td>
+          <td align="left" sdval="668.5" sdnum="1033;">668.5</td>
+          <td align="left" sdval="1" sdnum="1033;">1</td>
+          <td align="left" sdval="3" sdnum="1033;">3</td>
+          <td align="left" sdval="38" sdnum="1033;">38</td>
+          <td align="left" sdval="1" sdnum="1033;">1</td>
+          <td align="left" sdval="0" sdnum="1033;">0</td>
+          <td align="left" sdval="31" sdnum="1033;">31</td>
+        </tr>
+        <tr>
+          <td height="17" align="left">max</td>
+          <td align="left" sdval="891" sdnum="1033;">891</td>
+          <td align="left" sdval="1" sdnum="1033;">1</td>
+          <td align="left" sdval="3" sdnum="1033;">3</td>
+          <td align="left" sdval="80" sdnum="1033;">80</td>
+          <td align="left" sdval="8" sdnum="1033;">8</td>
+          <td align="left" sdval="6" sdnum="1033;">6</td>
+          <td align="left" sdval="512.3292" sdnum="1033;">512.3292</td>
+        </tr>
+      </table>
+    </p>
+    <hr>
+
+    <p>
+      This brief description provides little information. From this information, we can see that the data is reasonably complete, and the survival rate is around 38%, slightly higher than the overall survival rate of the Titanic tragedy.
+    </p>   
+    <hr>    
+
+  
+  <!-- Correlation Section -->
+    <h4 id="correlation"><b>Correlation: <br><br></b></h4>
+    <body>
+      <table cellspacing="0" border="1">
+        <colgroup span="8" width="85"></colgroup>
+        <tr>
+          <td height="17" align="left"><br></td>
+          <td align="left"> PassengerId</td>
+          <td align="left"> Survived</td>
+          <td align="left">    Pclass</td>
+          <td align="left">      Age</td>
+          <td align="left">    SibSp</td>
+          <td align="left">    Parch </td>
+          <td align="left">     Fare</td>
+        </tr>
+        <tr>
+          <td height="17" align="left" sdnum="1033;0;0.00%">PassengerId</td>
+          <td align="left" sdval="1" sdnum="1033;">1</td>
+          <td align="left" sdval="-0.005007" sdnum="1033;">-0.005007</td>
+          <td align="left" sdval="-0.035144" sdnum="1033;">-0.035144</td>
+          <td align="left" sdval="0.036847" sdnum="1033;">0.036847</td>
+          <td align="left" sdval="-0.057527" sdnum="1033;">-0.057527</td>
+          <td align="left" sdval="-0.001652" sdnum="1033;">-0.001652</td>
+          <td align="left" sdval="0.012658" sdnum="1033;">0.012658</td>
+        </tr>
+        <tr>
+          <td height="17" align="left" sdnum="1033;0;0.00%">Survived</td>
+          <td align="left" sdval="-0.005007" sdnum="1033;">-0.005007</td>
+          <td align="left" sdval="1" sdnum="1033;">1</td>
+          <td align="left" sdval="-0.338481" sdnum="1033;">-0.338481</td>
+          <td align="left" sdval="-0.077221" sdnum="1033;">-0.077221</td>
+          <td align="left" sdval="-0.035322" sdnum="1033;">-0.035322</td>
+          <td align="left" sdval="0.081629" sdnum="1033;">0.081629</td>
+          <td align="left" sdval="0.257307" sdnum="1033;">0.257307</td>
+        </tr>
+        <tr>
+          <td height="17" align="left" sdnum="1033;0;0.00%">Pclass</td>
+          <td align="left" sdval="-0.035144" sdnum="1033;">-0.035144</td>
+          <td align="left" sdval="-0.338481" sdnum="1033;">-0.338481</td>
+          <td align="left" sdval="1" sdnum="1033;">1</td>
+          <td align="left" sdval="-0.369226" sdnum="1033;">-0.369226</td>
+          <td align="left" sdval="0.083081" sdnum="1033;">0.083081</td>
+          <td align="left" sdval="0.018443" sdnum="1033;">0.018443</td>
+          <td align="left" sdval="-0.5495" sdnum="1033;">-0.5495</td>
+        </tr>
+        <tr>
+          <td height="17" align="left">Age</td>
+          <td align="left" sdval="0.036847" sdnum="1033;">0.036847</td>
+          <td align="left" sdval="-0.077221" sdnum="1033;">-0.077221</td>
+          <td align="left" sdval="-0.369226" sdnum="1033;">-0.369226</td>
+          <td align="left" sdval="1" sdnum="1033;">1</td>
+          <td align="left" sdval="-0.308247" sdnum="1033;">-0.308247</td>
+          <td align="left" sdval="-0.189119" sdnum="1033;">-0.189119</td>
+          <td align="left" sdval="0.096067" sdnum="1033;">0.096067</td>
+        </tr>
+        <tr>
+          <td height="17" align="left">SibSp</td>
+          <td align="left" sdval="-0.057527" sdnum="1033;">-0.057527</td>
+          <td align="left" sdval="-0.035322" sdnum="1033;">-0.035322</td>
+          <td align="left" sdval="0.083081" sdnum="1033;">0.083081</td>
+          <td align="left" sdval="-0.308247" sdnum="1033;">-0.308247</td>
+          <td align="left" sdval="1" sdnum="1033;">1</td>
+          <td align="left" sdval="0.414838" sdnum="1033;">0.414838</td>
+          <td align="left" sdval="0.159651" sdnum="1033;">0.159651</td>
+        </tr>
+        <tr>
+          <td height="17" align="left">Parch</td>
+          <td align="left" sdval="-0.001652" sdnum="1033;">-0.001652</td>
+          <td align="left" sdval="0.081629" sdnum="1033;">0.081629</td>
+          <td align="left" sdval="0.018443" sdnum="1033;">0.018443</td>
+          <td align="left" sdval="-0.189119" sdnum="1033;">-0.189119</td>
+          <td align="left" sdval="0.414838" sdnum="1033;">0.414838</td>
+          <td align="left" sdval="1" sdnum="1033;">1</td>
+          <td align="left" sdval="0.216225" sdnum="1033;">0.216225</td>
+        </tr>
+        <tr>
+          <td height="17" align="left">Fare</td>
+          <td align="left" sdval="0.012658" sdnum="1033;">0.012658</td>
+          <td align="left" sdval="0.257307" sdnum="1033;">0.257307</td>
+          <td align="left" sdval="-0.5495" sdnum="1033;">-0.5495</td>
+          <td align="left" sdval="0.096067" sdnum="1033;">0.096067</td>
+          <td align="left" sdval="0.159651" sdnum="1033;">0.159651</td>
+          <td align="left" sdval="0.216225" sdnum="1033;">0.216225</td>
+          <td align="left" sdval="1" sdnum="1033;">1</td>
+        </tr>
+      </table>
+
+      <p>
+        The above is the statistical correlation table between data categories. The survival row or column provides useful information. From this data, passenger fare and passenger class have a straightforward correlation to survival. This is very worthwhile investigating. However, it is not fair to say that categories with less correlation have less influence on survival chance.
+      </p>
+      <p>Below isolates individual catagories and compares the survival ratio of each option.</p>
+
+      <h5>Passenger Class:</h5>
+
+      <table border="1">
+        <thead>
+          <tr style="text-align: left;">
+            <th>Pclass</th>
+            <th>Survived</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>0.629630</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>0.472826</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>0.242363</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        No surprises there. Class 1 should be closer to the surface of the ship, whereas class 3 is likely to be at the bottom of the ship. This makes class 1 passengers much easier to escape.
+      </p>
+
+      <h5>Passenger Gender:</h5>
+      <div>
+      <table border="1">
+        <thead>
+          <tr style="text-align: left;">
+            <th>Sex</th>
+            <th>Survived</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>female</td>
+            <td>0.742038</td>
+          </tr>
+          <tr>
+            <td>male</td>
+            <td>0.188908</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Seems like the movie "The Titanic" is fairly realistic. There were a lot of gentlemen on board.</p>
+
+      <h5>Number of Siblings:</h5>
+
+      <table border="1">
+        <thead>
+          <tr style="text-align: left;">
+            <th>SibSp</th>
+            <th>Survived</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>0.535885</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>0.464286</td>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>0.345395</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>0.250000</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>0.166667</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>0.000000</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>0.000000</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Having a 1 or 2 sibling could be quite helful. But anything more than that is probably a let down.</p>
+
+      <h5>Number of Parent/Children:</h5>
+
+      <table border="1">
+        <thead>
+          <tr style="text-align: left;">
+            <th>Parch</th>
+            <th>Survived</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>3</td>
+            <td>0.600000</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>0.550847</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>0.500000</td>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>0.343658</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>0.200000</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>0.000000</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>0.000000</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h5>Wait, I am still working on it!</h5>
+
+
+    <hr class="w3-opacity">
+    <form action="/action_page.php" target="_blank">
+
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-32 w3-dark-grey">
+  <div class="w3-row-padding">
+    <div class="w3-third">
+      
+    </div>
+  
+    <div class="w3-third">
+
+    </div>
+
+    <div class="w3-third">
+      <h3>Source code: <a href="https://github.com/handsomeHypocrite/titanicDataAnalysis"><font color="blue">github repos.<font></a></h3>
+    </div>
+  </div>
+  </footer>
+  
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
