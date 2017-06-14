@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<title>bokai!</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+</style>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container">
+    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+      <i class="fa fa-remove"></i>
+    </a>
+<!--     <img src="./images/grad3.jpg" style="width:50%;" class="w3-round"><br><br>
+ -->    <h4><b><a href="../index.html" style="text-decoration: none">Home</a></b></h4>
+<!--     <p class="w3-text-grey">Template by W3.CSS</p>
+ -->  </div>
+  <div class="w3-bar-block">
+    <a href="#introduction" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Introduction</a> 
+    <a href="#brief" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Brief</a>
+    <a href="#featureExtraction" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Feature Extraction</a> 
+    <a href="#dataScaling" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Data Scaling</a>
+    <a href="#DTW" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>DTW</a>
+    <a href="#results" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Results</a>
+    <a href="#RTA" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Real Time Authentication</a>
+
+
+  </div>
+  <div class="w3-panel w3-large">
+    <!-- <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i> -->
+    <a href="https://github.com/handsomeHypocrite"><i class="fa fa-github w3-hover-opacity"></i></a>
+    <a href="https://www.linkedin.com/in/bokai-chen-511a1610b/?ppe=1"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+  </div>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+  <!-- Header -->
+  <header id="introduction">
+<!--     <a href="#"><img src="./images/tea.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a> -->
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+    <h1><b>Signature Authentication</b></h1>
+    <div class="w3-section w3-bottombar w3-padding-16">
+      <!-- <span class="w3-margin-right">Filter:</span> 
+      <button class="w3-button w3-black">ALL</button>
+      <button class="w3-button w3-white"><i class="fa fa-diamond w3-margin-right"></i>Design</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>Photos</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-map-pin w3-margin-right"></i>Art</button> -->
+    </div>
+    </div>
+  </header>
+  
+  <!-- First Photo Grid-->
+  <div class="w3-row-padding" style="margin-left: 1cm"> 
+  <h4><b>Introduction:</b></h4>
+  <hr>
+  <img src="similarities.png">
+
+  <p>
+    Signature is a type of behavioral biometry. The characteristics of a signature are acquired by the signee overtime. These characteristics are the result of a complex combination of factors, such as the signee’s preferences, routines, and muscle structures. These factors make signatures very difficult to forge. But due to the ever-changing nature of behavioral biometry, it is virtually impossible to produce the exact same signature twice. The 2 signatures above looks very different visually, however, good authentication algorithms are able to realize that they are 2 genuine signatures from the same signer. And not none of the signatures on this page is my signature.
+
+  </p>
+  <br>
+
+
+<!-- Classification content -->
+ 
+ <h4 id= "brief"><b>Project Brief:<br><br></b></h4>
+    <p>
+      The project was divided into 2 parts:
+    </p>
+    <br>
+    <p>
+        1. Develop an algorithm to identify forged signature from genuine signatures using a provided database.
+    </p>
+    <p>
+        2. Program this algorithm into a graphical tablet. Authenticate signatures in real time.
+    </p>
+    <hr>
+    
+
+    <p>
+      Without looking at the actual data, one can immediately tell that categories such as sex, age, and ticket class are likely to be much better predictors of a passengers survival chance than ticket number and port of embarkation. However, no assumption is made at this stage.
+    </p>
+    <p>
+      The test for the developed algorism is conducted using the SUSig database. This database is a collection of signatures made available by the Sabanci University, each sample signature includes 10 genuine and 10 highly skilled forgeries.
+    </p>
+    <hr>
+
+    <p>
+      The authentication process includes 4 steps: Feature Extraction, Data Scaling, Dynamic Time Warp and Threshold Calculation.
+    </p>   
+    <hr>    
+
+  
+  <!-- Correlation Section -->
+   <h4 id="featureExtraction"><b>Feature Extraction: <br><br></b></h4>
+     <p>
+      The algorithm of this project utilizes 4 categories of data from each signature: x-displacement, y-displacement, continuous time and pressure. Most forgers focus on the geometry of the reference signature but pay little attention to the pressure and timing. The following 2 graphs show how some forgeries can be easily identified using pressure data.
+     </p>
+     <img src="pressureGraph.png">
+     <p>
+      The graph plots the pressure of pen tip recorded during the signature. The top 3 lines are forgeries, showing the forger is holding the pen tighter and applying uneven pressure when compared to the 3 genuine signatures near the bottom of the graph.
+     </p>
+
+  <hr>
+
+  <h4 id="dataScaling"><b>Data Scaling: <br><br></b></h4>
+   <p>
+     This is a relatively simple step. Data extracted is scaled to the same size by normalization, then rotated to around the center of mass. The effect of this step is insignificant in the case of most signatures. But it did have positive effect on some inconsistent reference signatures.
+   </p>
+   <img src="rotation.png">
+
+  
+  <hr>
+
+  <h4 id="DTW"><b>Dynamic Time Warp: <br><br></b></h4>
+  <p>
+    There are 3 major series comparison methods used for applications such as signature authentication, voice comparison, fingerprint authentication, etc. They are Vector Quantization, hidden Markov and Dynamic Time Warp. Our algorithm uses Dynamic Time Warp.
+  </p>
+
+  <p>
+    Dynamic Time Warping enables the comparison of signatures regardless of their sizes or number of points of data. The advantage of this is that if a signature holds 20 points of data from one database, it can be compared to another with 30 points of data, meaning that sampling methods should have no impact on the comparison itself. It is for this reason that DTW has been chosen in this project. 
+  </p>
+
+  <img src="dtw.png">
+
+  <p>
+    The diagram above shows a rough idea of DTW comparing relevant point between 2 signatures. DTW is a rather complex procedure, Jareth and me have spent a large amount of time modifying DTW features and weighting. I will not go into details here.
+  </p>
+  <hr>
+
+
+  <h4 id="thresholdCalculation"><b>Threshold Calculation: <br><br></b></h4>
+  <p>
+    After comparing the test signature with the reference signatures. An algorithm must determine if the test signature is “similar enough” to be classified as a genuine signature. This threshold of similarity is calculated by comparing all reference signatures against each other, then setting a value based on Normal Distribution of the result.
+  </p>
+  <hr>
+
+  <h4 id="results"><b>Results: <br><br></b></h4>
+  <p>
+    The two main measures of accuracy used in this project come in the form of False Rejection Ratio (FRR) and False Acceptance Ratio. FRR refers to how many of the compared genuine signatures accidentally get rejected. FAR refers to how many of the compared incorrect signatures are accepted. A third form of measure is the Equal Error Rate (EER). The Equal Error Rate exists where FRR is equal to FAR. Since both cannot be at 0% at the same time, they intersect at the EER
+  </p>
+  <img src="eer.png">
+  <hr>
+  
+
+  <table border="1">
+    <tr>
+      <th>FRR</th>
+      <th>FAR</th>
+    </tr>
+    <tr>
+      <td>5%</td>
+      <td>1.34%</td>
+    </tr>
+    <tr>
+      <td>2.5%</td>
+      <td>1.38%</td>
+    </tr>
+    <tr>
+      <td>1.5%</td>
+      <td>1.41%</td>
+    </tr>
+  </table>
+  <br>
+  <p>
+    These results can be used to find the EER of 1.06%. The lower the equal error rate, the more accurate the system. FAR and FRR will never be able to be zero at the same time and so best system will either  improve more on one of the two than the other or reduce EER down to an acceptable level. 
+  </p>
+
+  <p>
+    The results found in this project are much lower than other industry EERs and must be understood carefully. The system was built mainly around testing the SUSIG database and so carried a fair amount of bias towards it. The results gathered would be best retaken with a test on the tablet interface when a larger database is created. 
+  </p>
+  <hr>
+
+
+  <h4 id="RTA"><b>Real Time Authentication: <br><br></b></h4>
+  <p>
+    The algorithm developed in the project is them put to the test using the Wacom STU-430 Signature Pad. The signature pad comes with a development environment. And the user interface was written by Jareth using Java. From the data collected by Jareth and me. Our algorithm is able to authenticate signature with an accuracy of between 90% - 95%. The time taken to process the signatures on a laptop is belowing 10 seconds. Below are some pictures. 
+  </p>
+
+  <img src="wacom.png">
+  <hr>  
+  <img src="enroll.png">
+  <hr>
+  <img src="success.png">
+  <hr>
+
+
+    
+
+
+    <hr class="w3-opacity">
+    <form action="/action_page.php" target="_blank">
+
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-32 w3-dark-grey">
+  <div class="w3-row-padding">
+    <div class="w3-third">
+      
+    </div>
+  
+    <div class="w3-third">
+
+    </div>
+
+    <div class="w3-third">
+<!--       <h3>Source code: <a href="https://github.com/handsomeHypocrite/titanicDataAnalysis"><font color="blue">github repos.<font></a></h3>  -->
+      <h3><a href="../index.html" style="text-decoration: none"><font color = "white"> Home </font></a></h3>
+    </div>
+  </div>
+  </footer>
+  
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
