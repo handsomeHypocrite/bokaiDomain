@@ -25,7 +25,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <a href="#brief" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Brief</a> 
     <a href="#classification" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Classification</a> 
     <a href="#correlation" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Correlation</a>
+<<<<<<< HEAD
+    <a href="#dataManipulation" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Data Manipulation</a>
+    <a href="#createModel" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Create Model</a>
+
+
   </div>
+
+=======
+  </div>
+>>>>>>> e8b3466a5e91165364c0d24352efa9c020d0f819
   <div class="w3-panel w3-large">
     <!-- <i class="fa fa-facebook-official w3-hover-opacity"></i>
     <i class="fa fa-instagram w3-hover-opacity"></i>
@@ -291,8 +300,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
   
   <!-- Correlation Section -->
+<<<<<<< HEAD
+    <h4 id="correlation"><b>Correlation: <br><br></b></h4>    
+=======
     <h4 id="correlation"><b>Correlation: <br><br></b></h4>
     <body>
+>>>>>>> e8b3466a5e91165364c0d24352efa9c020d0f819
       <table cellspacing="0" border="1">
         <colgroup span="8" width="85"></colgroup>
         <tr>
@@ -518,8 +531,138 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         </tbody>
       </table>
 
-      <h5>Wait, I am still working on it!</h5>
+<<<<<<< HEAD
+      <hr>
+      <hr>
 
+
+    <!-- Data Manipulation Section -->
+    <h4 id="dataManipulation"><b>Data Manipulation: </b></h4>
+    <hr>
+
+    <h5>1. Dropping less useful feature</h5>
+    <p>
+      The Cabin Number and Ticket Number provides little correlation to the survival of the passengers. Therefore, they are dropped at this stage. However, they maybe added back in the future for further analysis.
+    </p>
+
+    <hr>
+
+    <h5>2. Complete Missing Data</h5>
+    <p>
+      Due to the nature of the sklearn module, all data in every observation must be complete. Therefore it is better to complete the data before manipulating the data. This project  fills in data by choosing the mode of the data in observations that have similar data in other features.
+    </p>
+    <p>
+      For example, the project estimates the age band of passengers based on other passengers with the same Pclass and gender.
+
+    </p>
+
+    <hr>
+
+    <h5>3. Extract Title from passenger Name: </h5>
+    <p>
+      The Name feature in the training data contains the tile of the passenger. The number and the precentage survived of each title is shown in the table below. The survival % shows that there is strong correlation between the passenger's title and his/her survival probability.
+    </p>
+    <table border="1">
+      <thead>
+        <tr>
+          <td>Title</td>
+          <td>Count</td>
+          <td>Survived</td>
+        </tr>        
+      </thead>
+      <tbody>
+        <tr>
+          <td>Master</td>
+          <td>517</td>
+          <td>57.5%</td>          
+        </tr>
+        <tr>
+          <td>Miss</td>
+          <td>185</td>
+          <td>70.2703%</td>
+        </tr>
+        <tr>
+          <td>Mr</td>
+          <td>15.6673%</td>
+        </tr>
+        <tr>
+          <td>Mrs</td>
+          <td>40</td>
+          <td>79.3651%</td>
+        </tr>
+        <tr>
+          <td>Rare</td>
+          <td>23</td>
+          <td>34.7826%</td>
+        </tr>
+      </tbody>      
+    </table>
+    <hr>
+
+    <h5>4. Seperate Age Group: </h5>
+    <br>
+    <img src="./images/ageGroups.png">
+    <br>
+    <p>
+      The above graph shows the age structure for survived and not survived passengers. The 2 curves have similar shapes.  Major differences being there are about twice as many passengers between 20 to 30 did not survive the tragedy than those who did. There are more than twice as many infants survived than those who did not. The rest of the age group show similar numbers between those who survived and those who didn’t.
+    </p>
+    <p>
+      To clearly represent the correlation between individual age groups and the survival probability, age feature is separated into ages segments.
+    </p>    
+    <hr>
+
+    <h5>5. Create New Feature </h5>
+    <p>A new feature “is alone” feature is created by processing data from Sibling and Parent/Children feature. This simplifies the data set and provide good correlation. This feature may be adjusted in the future.</p>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <td>Is Alone</td>
+          <td>Survived</td>          
+        </tr>        
+      </thead>
+      <tbody>
+        <tr>
+          <td>No</td>
+          <td>50.5650%</td>
+        </tr>
+        <tr>
+          <td>Yes</td>
+          <td>30.3538%</td>
+        </tr>
+      </tbody>      
+    </table>
+
+    <hr>
+
+    <h5>6. Reformat data: </h5>
+    <p>
+      To accomodate for the sklearn module function format. All features in the test and trainign data are converted to ordinal values. All missing data is filled in using methods previously mentioned.
+    </p>
+
+    <hr><hr>
+    <h4 id="createModel"><b>Create Model: </b></h4>
+    <hr>
+    <p>
+      The Python sklearn module provides many predictive models in simple to use format. Little work is need in this section. Right now there are 2 models being used:
+    </p>
+
+    <hr>
+
+    <h5>Logistic Regression</h5>
+    <p>Logistic Regression model is applied to the data. The sklearn function is left at default values. The accuracy of this model is 80.36%. I have yet to fully understand the Logistic Regression model. When I do, I will tweak some values and try it again.
+    </p>
+
+    <hr>
+
+    <h5>K-Nearest Neighbors</h5>    
+    <p>
+      KNN model is applied to this data. The KNN model compares test observation data with other data with observations with similar dependent feature data, then predicts the survival value based on the survival data of those observations. The accuracy is at 83.95% when K value is set to 5.  
+    </p>
+
+    <hr><hr>
+
+    <h5>This concludes this project at this stage. I may comeback to furth analyse this project when I am more familiar with Pythond pandas and other predictive models</h5>
 
     <hr class="w3-opacity">
     <form action="/action_page.php" target="_blank">
